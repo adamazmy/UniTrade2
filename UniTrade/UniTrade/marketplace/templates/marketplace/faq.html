@@ -1,0 +1,288 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8"> <!---Character encoding-->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> <!--For Different device (Compatibility)-->
+
+    <!-- External Libraries-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+    <link rel = "stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>FAQ's</title>
+
+</head>
+
+<body>
+    <!---------------------------NAVIGATION BAR------------------------------>
+    <section id="nav-bar">
+       <div class="container"> 
+           <nav class="navbar navbar-expand-lg bg-body-tertiary">
+               <div class="container-fluid">
+                   <a class="navbar-brand" href="{% url 'products' %}">UniTrade</a>
+                   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                       <span class="navbar-toggler-icon"></span>
+                   </button>
+                   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      
+                        <!-- Search form -->
+                        <form class="d-flex form-inline my-2 my-lg-0" role="search" method="POST" action="{% url 'search_view' %}">
+                                {% csrf_token %}
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search"name= "search_query"aria-label="Search">
+                        
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+    
+                       <!-- New navbar items -->
+                       <ul class="navbar-nav mb-2 mb-lg-0">
+                           <li class="nav-item">
+                               <a class="nav-link d-flex flex-column align-items-center" href="#">
+                                   <span class="fa fa-bell mb-1"></span>
+                                   <h5>Notifications</h5>
+                               </a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link d-flex flex-column align-items-center" href="#">
+                                   <span class="fa fa-user-plus mb-1"></span>
+                                   <h5>Sign Up</h5>
+                               </a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link d-flex flex-column align-items-center" href="#">
+                                   <span class="fa fa-box mb-1"></span>
+                                   <h5>My Orders</h5>
+                               </a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link d-flex flex-column align-items-center" href="#">
+                                   <span class="fa fa-shopping-cart mb-1"></span>
+                                   <h5>Shopping Cart</h5>
+                               </a>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </nav>
+       </div>
+   </section>
+
+   <!----------------------MINI NAV_BAR FOR FILTER----------------->
+
+   <section id="Filter">
+       <div class="container">
+           <nav class="navbar navbar-expand-lg navbar-light" style="color: #fff;"> <!-- Add your desired classes for styling -->
+               <div class="container-fluid">
+                   <div class="collapse navbar-collapse" id="navbarNav">
+                       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                           <li class="nav-item">
+                               <span role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="nav-link category-trigger" style="cursor:pointer;">All</span>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="#">Today's Deals</a>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link active" href="{% url 'aboutus' %}">About us</a>
+                           </li>
+
+                           <li class="nav-item">
+                               <a class="nav-link active" aria-current="page" href="#">History</a>
+                           </li>
+                       </ul>
+                   </div>
+               </div>
+           </nav>
+       </div>
+
+       <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+       <div class="offcanvas-header">
+           <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Hello, username</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+       </div>
+       <div class="offcanvas-body">
+           <h2>Trending</h2>
+           <p>New Items Added</p>
+
+           <br> 
+           
+           <h2>Shop by Department</h2>
+           <p>Electronics & Computers</p>
+           <p>Film, Tv, Music</p>
+           <p>TEducation</p>
+           <p>Home Equipments</p>
+           <p>Books & Literature</p>
+           <p>Sports & Leisure</p>
+
+           <br>
+
+           <h2>Help & Settings</h2>
+           <p>Your Account</p>
+           <p>Customer Service</p>
+           <a href="{% url 'faq' %}"><p>FAQ</p></a>
+           <p>Sign Out</p>
+           
+       </div>
+       </div>
+   </section>
+
+
+   <!--FAQ-->
+
+   <div class="wrapper">
+    <h1>Frequently Asked Questions</h1>
+
+    <div class="faq">
+        <button class="accordion"> How do I get my products?
+        <i class="fas fa-chevron-down"></i> </button>
+    <div class="panel">
+        <p>You and the seller will mutually decide on  a meeting point on University campus
+        </p>
+    </div>
+</div>
+
+
+    <div class="faq">
+        <button class="accordion">How do I cancel an order?
+        <i class="fas fa-chevron-down"></i> </button>
+    <div class="panel">
+        <p>Get in contact with the seller and report any issues
+        </p>
+    </div>
+</div>
+
+<div class="faq">
+    <button class="accordion">The product I've gotten is faulty/not working properly.  What should I do?
+    <i class="fas fa-chevron-down"></i> </button>
+<div class="panel">
+    <p>Please get in contact with the seller first and if there is still a problem, contact us at unitrade12@gmail.com</p>
+
+</div>
+</div>
+
+<div class="faq">
+    <button class="accordion">How do I contact customer support?
+    <i class="fas fa-chevron-down"></i> </button>
+<div class="panel">
+    <p>Please contact us through our email - unitrade12@gmail.com
+    </p>
+</div>
+</div>
+
+<div class="faq">
+    <button class="accordion">What are the item conditions you have?
+    <i class="fas fa-chevron-down"></i> </button>
+<div class="panel">
+    <p>We offer 4 different conditions for our items: <br>
+
+        Pre-Owned:
+        This item has been owned <br>
+        New with box:
+        Item is new and sealed - not been opened <br>
+        New without box:
+        Item is new and has been unsealed <br>
+        New with defects:
+        Item came with defects which are listed in the product description
+        
+    </p>
+</div>
+</div>
+
+<div class="faq">
+    <button class="accordion">Which types of items do you sell?
+    <i class="fas fa-chevron-down"></i> </button>
+<div class="panel">
+    <p>We sell a wide range of products including categories like Electronics, Clothing, Textbooks and more.   For further details, please look at our shop by department section.
+    </p>
+</div>
+</div>
+
+
+
+</div>
+
+<script>
+
+    var acc = document.getElementsByClassName("accordion");
+    var i;
+
+    for(i = 0; i < acc.length; i++){
+        acc[i].addEventListener("click",function() {
+            this.classList.toggle("active");
+            this.parentElement.classList.toggle("active");
+
+            var panel = this.nextElementSibling;
+            if(panel.style.display === "block"){
+                panel.style.display = "none";
+            } else{
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+
+
+<!-------Footer------>
+<!------------Footer---------------->
+<section id="footer">
+
+    <div class="container text-center">
+        <br>
+        <div>
+            <a style="color: #fff; font-size: x-large;" href="https://twitter.com/?lang=en"><span style="padding-left: 16px;"><i class="fa-brands fa-x-twitter"></span></i></a>
+            <a style="color: #fff; font-size: x-large;" href="https://www.instagram.com/unitrade12/"><span style="padding-left: 16px;"><i class="fab fa-instagram"></span></i></a>
+            <a style="color: #fff; font-size: x-large;" href="https://www.youtube.com/"><span style="padding-left: 16px;"><i class="fab fa-youtube"></span></i></a>
+            <a style="color: #fff; font-size: x-large;" href="https://en-gb.facebook.com/"><span style="padding-left: 16px;"><i class="fab fa-facebook"></span></i></a>
+        </div>
+      <div class="footer-columns d-flex justify-content-between">
+        <ul class="main-footer-groups 1">
+          <li class="same-as-above-idek">
+          </li>
+        </ul>
+        <ul class="main-footer-groups 2">
+          <li class="same-as-above-idk">
+            <br>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'aboutus' %}"><span style="padding-left: 20px;">About Us</span></a>
+            <a style="text-decoration: none; color: #fff;" href="{% url 'products' %}"><span style="padding-left: 20px;">Contact Us</span></a>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'current' %}"><span style="padding-left: 20px;">Sell With Us</span></a>
+            <a style="text-decoration: none; color: #fff;" href="{% url 'faq' %}"><span style="padding-left: 20px;">FAQ's</span></a>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'termsandconditions' %}"><span style="padding-left: 20px;">Terms And Conditions</span></a>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'privacypolicy' %}"><span style="padding-left: 20px;">Privacy Notice</span></a>
+
+          </li>
+        </ul>
+        <ul class="main-footer-groups 3">
+            <li class="same-as-above-idek">
+            </li>
+        </ul>
+      </div>
+    </div>
+  
+  </section>
+    
+<script src="js/smooth-scroll.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]')
+    </script>
+
+</section>
+<script src="js/smooth-scroll.js"></script>
+<script>
+    var scroll = new SmoothScroll('a[href*="#"]')
+</script>
+   </body>
+   </html>

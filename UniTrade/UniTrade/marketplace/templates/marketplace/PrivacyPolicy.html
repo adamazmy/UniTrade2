@@ -1,0 +1,234 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy</title>
+    <!-- External Libraries-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+     <!---------------------------NAVIGATION BAR------------------------------>
+     <section id="nav-bar">
+        <div class="container"> 
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'products' %}">UniTrade</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                       
+                        <!-- Search form -->
+                        <form class="d-flex form-inline my-2 my-lg-0" role="search" method="POST" action="{% url 'search_view' %}">
+                            {% csrf_token %}
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search"name= "search_query"aria-label="Search">
+                    
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                        </form>
+    
+                        <!-- New navbar items -->
+                        <ul class="navbar-nav mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link d-flex flex-column align-items-center" href="#">
+                                    <span class="fa fa-bell mb-1"></span>
+                                    <h5>Notifications</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex flex-column align-items-center" href="{% url 'signup' %}">
+                                    <span class="fa fa-user-plus mb-1"></span>
+                                    <h5>Sign Up</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex flex-column align-items-center" href="#">
+                                    <span class="fa fa-box mb-1"></span>
+                                    <h5>My Orders</h5>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link d-flex flex-column align-items-center" href="#">
+                                    <span class="fa fa-shopping-cart mb-1"></span>
+                                    <h5>Shopping Cart</h5>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!----------------------MINI NAV_BAR FOR FILTER----------------->
+
+    <section id="Filter">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light" style="color: #fff;"> <!-- Add your desired classes for styling -->
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <span role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="nav-link category-trigger" style="cursor:pointer;">All</span>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Today's Deals</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'aboutus' %}">About us</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">History</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'current' %}">Sell</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Hello, {{user.email}}</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <h2>Trending</h2>
+            <hr>
+            <p>New Items Added</p>
+
+            <br> 
+            
+            <h2>Shop by Department</h2>
+            <hr>
+            <a aria-current="page" href="{% url 'technology' %}" style="text-decoration: none; color: black;"><p>Technology</p></a>
+            <a aria-current="page" href="{% url 'electroniccomputers' %}" style="text-decoration: none; color: black;"><p>Electronics & Computers</p></a>
+            <a aria-current="page" href="{% url 'filmTvMusic' %}" style="text-decoration: none; color: black;"><p>Film, Tv, Music</p></a>
+            <a aria-current="page" href="{% url 'education' %}" style="text-decoration: none; color: black;"><p>Education</p></a>
+            <a aria-current="page" href="{% url 'homeEquipment' %}" style="text-decoration: none; color: black;"><p>Home Equipments</p></a>
+            <a aria-current="page" href="{% url 'books' %}" style="text-decoration: none; color: black;"><p>Books & Literature</p></a>
+            <a aria-current="page" href="{% url 'sportsleisure' %}" style="text-decoration: none; color: black;"><p>Sports & Leisure</p></a>
+
+            <br>
+
+            <h2>Help & Settings</h2>
+            <hr>
+            <a aria-current="page" href="{% url 'account' %}" style="text-decoration: none; color: black;"><p>Your Account</p></a>
+            <p>Customer Service</p>
+            <a href="{% url 'faq' %}" style="text-decoration: none; color: black;"><p>FAQ</p></a>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Log Out</button>
+            </form>            
+        </div>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT (LIST OF PRODUCTS) - Made by Vedansh Guru -->
+    <section id="product-list">
+        <a href="#" style="color: #000; text-decoration:none;">
+            <h2> Privacy Policy >></h2>
+        </a>
+        <div class="main_container">
+            <section id="about">
+                <div class="container">
+                    <div class="row">
+        
+                            <br>
+                            <div class="about-content">
+                                <!-- Inserting the Privacy Policy content here -->
+                                <br>
+                                <h3>1. What data do we collect and how do we use it?</h3>
+                                <p>We collect your data when you register to UniTrade and when you are using our Service. We use your data so that you can use the Service and, from time to time, we may use your data to comply with our legal obligations or for other legitimate reasons. There may also be times when we ask for your consent to use your data.</p>
+                                <p>We collect data from you when you use our Service or when you provide it to us, for example when you:</p>
+                                <ul>
+                                    <li>Register to use the Service.</li>
+                                    <li>List an item for sale or sell an item.</li>
+                                    <li>Make an offer or buy an item.</li>
+                                    <li>View, like, save, search for or comment on an item, add an item to your bag or communicate with other users.</li>
+                                    <li>Sign up to our marketing emails and push notifications.</li>
+                                    <li>Complete a form or survey.</li>
+                                    <li>Participate in a research interview or focus group.</li>
+                                    <li>Enter a competition or take part in a promotion.</li>
+                                </ul>
+                                <p>We need a legal reason to collect and use your data. The main reason we use your data is to perform our contract (the Terms of Service) with you, so that you can use our Service.</p>
+
+                                <h3>2. Who do we share your data with?</h3>
+                                <p>We may need to share your data, for example with other companies that are in our group of companies, to third parties that provide us with services or for legal reasons.</p>
+                                <p>We may share your data with:</p>
+                                <ul>
+                                    <li>Moderators who monitor our Service, to ensure our Terms of Service are not being breached and that no criminal activity is taking place using our Service.</li>
+                                    <li>In some cases, our service providers may collect data directly from you, for example if they are asked to conduct a survey for us. Where this happens, you will be notified of their involvement and any data you provide to them will be completely optional. The service provider’s use of your data is governed by its privacy policy.</li>
+                                    <li>Law enforcement, regulators and others for legal reasons: If we are under a legal obligation, we may need to disclose your data to third parties such as law enforcement or regulators. We may also need to disclose your data to third parties to protect our (or others) rights, property or safety or to detect or investigate illegal activity and any breaches of agreements we have with you.</li>
+                                </ul>
+
+                                <h3>3. How long do we keep your data?</h3>
+                                <p>We will only keep your data for as long as we need it. If you have an account, this means we keep your data when your account is active. If your account is deactivated, we also keep your data for a reasonable period of time afterwards. We may also keep your data for legal or technical reasons.</p>
+                                <p>We only keep your data for as long as we need it and for the purpose it was collected for. This includes when we need to keep your data to comply with any legal, compliance, accounting or reporting requirements, or for the purposes of fraud prevention. When we decide how long we need to keep your data for, we take into account the amount, nature, and sensitivity of the data, the potential risk of harm from unauthorised use or disclosure of your data, the purposes we use your data for and whether we can achieve those purposes another way, and applicable legal requirements.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- Footer -->
+<!-------Footer------>
+<!------------Footer---------------->
+<section id="footer">
+
+    <div class="container text-center">
+        <br>
+        <div>
+            <a style="color: #fff; font-size: x-large;" href="https://twitter.com/?lang=en"><span style="padding-left: 16px;"><i class="fa-brands fa-x-twitter"></span></i></a>
+            <a style="color: #fff; font-size: x-large;" href="https://www.instagram.com/unitrade12/"><span style="padding-left: 16px;"><i class="fab fa-instagram"></span></i></a>
+            <a style="color: #fff; font-size: x-large;" href="https://www.youtube.com/"><span style="padding-left: 16px;"><i class="fab fa-youtube"></span></i></a>
+            <a style="color: #fff; font-size: x-large;" href="https://en-gb.facebook.com/"><span style="padding-left: 16px;"><i class="fab fa-facebook"></span></i></a>
+        </div>
+      <div class="footer-columns d-flex justify-content-between">
+        <ul class="main-footer-groups 1">
+          <li class="same-as-above-idek">
+          </li>
+        </ul>
+        <ul class="main-footer-groups 2">
+          <li class="same-as-above-idk">
+            <br>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'aboutus' %}"><span style="padding-left: 20px;">About Us</span></a>
+            <a style="text-decoration: none; color: #fff;" href="{% url 'products' %}"><span style="padding-left: 20px;">Contact Us</span></a>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'current' %}"><span style="padding-left: 20px;">Sell With Us</span></a>
+            <a style="text-decoration: none; color: #fff;" href="{% url 'faq' %}"><span style="padding-left: 20px;">FAQ's</span></a>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'termsandconditions' %}"><span style="padding-left: 20px;">Terms And Conditions</span></a>
+            <a style="color: #fff; text-decoration: none;" href="{% url 'privacypolicy' %}"><span style="padding-left: 20px;">Privacy Notice</span></a>
+
+          </li>
+        </ul>
+        <ul class="main-footer-groups 3">
+            <li class="same-as-above-idek">
+            </li>
+        </ul>
+      </div>
+    </div>
+  
+  </section>
+
+    <script src="js/smooth-scroll.js"></script>
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]')
+    </script>
+
+</body>
+
+</html>

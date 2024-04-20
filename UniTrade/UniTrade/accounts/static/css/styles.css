@@ -1,0 +1,845 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+/*---------------- NAVIGATION BAR ------------------ */
+#nav-bar
+{
+    position: sticky;
+    margin-top: 0;
+    top: 0;
+    z-index: 10;
+}
+.navbar-brand img{
+    height: 40px;
+    padding-left: 30px;
+}
+.navbar-nav li
+{
+    padding: 0 10px;;
+}
+.navbar-nav li a
+{
+    float: right;
+    text-align: left;
+}
+#nav-bar ul li a:hover
+{
+    color: #007bff !important ;
+}
+
+
+#nav-bar.bg-dark {
+    background-color: #5b0000; /* Replace #334455 with your desired color */
+}
+.navbar-toggler
+{
+    border: none !important;
+}
+.nav-link
+{
+    color: #9d9d9d !important ;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* Ensure the navbar items are flex-aligned and the search form takes maximum width */
+#navbarSupportedContent {
+    display: flex;
+    justify-content: space-between; /* Adjust this as needed */
+    align-items: center;
+}
+
+/* Style the search input to be wider */
+.navbar .d-flex {
+    flex-grow: 1;
+    justify-content: center;
+}
+
+.navbar .form-control {
+    width: 60%; /* Adjust the width as needed */
+}
+
+#nav-bar .container {
+    max-width: 88%; /* Adjust this value to control the width */
+    margin: auto; /* This centers the container */
+}
+
+
+.nav-item h5{
+    font-size: 14px;
+}
+
+
+/*---------------------RECOMMENDED CONTAINER ----------------------------*/
+
+*{
+    box-sizing: border-box;
+    font-family: "Montserrat";
+    padding: 0;
+    margin: 0;
+}
+
+.product{
+    box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+}
+
+body{
+    width: 100%;
+    padding: 0px;
+    overflow-x: hidden !important;
+
+}
+
+body #product-list{
+    padding: 40px 120px 120px 120px;
+}
+
+.main_container{
+    display: grid;
+    grid-template-columns: auto auto auto auto; /* How many colums to display to user */
+    gap: 30px;
+
+}
+
+.recentlyViewed_container{
+    display: grid;
+    grid-template-columns: auto auto auto auto; /* How many colums to display to user */
+    gap: 30px; 
+}
+
+.product img{
+    width: 100%;
+    border-top-right-radius: 20px;
+    
+}
+
+.product_description{
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.product_description h3{
+    font-size: 16px;
+    padding: 5px 0px;
+}
+
+.product_description p{
+    font-size: 14px;
+}
+
+.checked{
+    color: orange;
+}
+
+
+
+
+#product-list h2{
+    font-size: 24px;
+    font-family: 'Montserrat';
+    font-weight: bold;
+}
+
+
+
+.filter-section {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+/*--------------------------------------FILTER/Categories------------------------*/
+.category-trigger {
+    display: inline-block;
+    padding: 8px 15px; /* Adjust padding to change size */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Text color */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Changes cursor to indicate clickability */
+    transition: background-color 0.2s; /* Smooth background color transition on hover */
+    align-content: center;
+}
+
+.category-trigger:hover {
+    background-color: #0056b3; /* Darker shade for hover effect */
+    text-decoration: none; /* Removes underline from link */
+}
+
+#Filter .container{
+    max-width: 90%; /* Adjust this value to control the width */
+    margin: auto; /* This centers the container */
+}
+
+/*------Footer-----*/
+#footer
+{
+    background: #333;
+    color: #fff;
+    padding: 12px;
+}
+
+
+
+/* ----------------------------------------ABOUT US --------------------------------------------------------*/
+
+.quote_container{
+    margin: 0 auto; 
+    display: block; 
+    width: 86%; 
+}
+
+blockquote{
+    padding:80px 50px;
+    text-align: center;
+    background-color: #333;
+}
+ 
+
+blockquote p {
+    font-size: 24px;
+    font-style: italic;
+    text-align: center;
+    color: #fff;
+}
+
+.about-content{
+    display: grid;
+    justify-content: start;
+    justify-content: left;
+}
+
+#about .container{
+    background-color: #b0b0b0;
+    background-color: #fff;
+}
+
+
+/*-----Carousel----*/
+
+.carousel-item img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 86%;   
+}
+
+
+
+/*-----------------------FAQ-----------------*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.wrapper
+{
+    max-width: 80%;
+    margin: auto;
+}
+
+.wrapper > p,
+.wrapper >h1
+{
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.wrapper >h1
+{
+    letter-spacing: 3px;
+}
+
+.accordion
+{
+    background-color: white;
+    color: rgba(0,0,0,0.8);
+    cursor: pointer;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 2rem, 2.5rem;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    font-weight: bold;
+    
+}
+
+.accordion i 
+{
+    padding: 2rem;
+    font-size: 1.6rem;
+    
+
+}
+
+.active,
+.accordion:hover
+{
+    background-color: #f1f7f5;
+}
+
+.panel
+{
+    padding: 0 2rem 2.5rem 2rem;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f7f5;
+    
+}
+
+.panel p
+{
+    color: rgba(0,0,0,0.7);
+    font-size: 1.2rem;
+    line-height: 1.4;
+}
+
+.faq
+{
+    border: 1px solid rgba(0,0,0,0.1);
+    margin: 10px 0;
+}
+
+.faq.active
+{
+    border: none;
+}
+
+
+
+/*-------------------------------------SELL Page 2----------------------------------------*/
+
+
+
+/*-------NavBar ------- */
+
+@media (min-width: 992px) { /* Adjust based on your navbar-expand-* class */
+    .navbar-brand-sell {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 40px;
+    }
+}
+
+#nav-bar-sell .container{
+    max-width: 88%; /* Adjust this value to control the width */
+    margin: auto;
+}   
+
+.navbar-brand-sell a {
+    text-decoration: none;
+    font-size: 20px;
+}
+
+/*----Condition-----*/
+
+#Options .container-fluid{
+    padding: 60px 360px;
+}
+
+.form h2{
+    font-size: 36px;
+    text-align: left;
+    font-weight: bold;
+}
+
+.form h3{
+
+    font-size: 18px;
+    text-align: left;
+    font-weight:lighter;    
+}
+
+.radio-group label{
+    width: 100%;
+}
+
+.radio-group h4{
+    font-size: 18px;
+    text-align: left;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.radio-group h5{
+    font-size: 14px;
+    text-align: left;
+    padding-left: 5px;
+}
+
+.btn.btn-primary a {
+    color: white; /* Set the color to white */
+    text-decoration: none; /* Remove underline */
+    display: block; /* Make the link fill the button for better clickability */
+}
+
+.icon-link i {
+    /*color: #3d1ded; /* Change the color as needed */
+    font-size: 30px; /* Adjust size as needed */
+    padding-right: 10px; /* Adds spacing to the right of the icon */
+}
+
+#nav-bar .container a{
+    text-decoration: none;
+}
+
+
+/*--------------------------------------SELL PAGE 1 ------------------------------------------------*/
+
+#Current-Listings .container-listing{
+    max-width: 75%; /* Adjust this value to control the width */
+    margin: auto;
+}
+
+.container-listing h2{
+    
+    font-size: 20px;
+    padding-top: 40px;
+    font-weight: bold;
+}
+
+#Current-Listings i{
+    font-size: 80px;
+}
+
+#Current-Listings a{
+    text-decoration: none;
+}
+
+.card-body h5{
+    font-size: 16px ;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+/*------------------------------------- Sell Page 3 ----------------------------------------------*/
+
+#listing .container{
+    max-width: 60%;
+}
+
+.container h1{
+    font-size: 20px;
+    text-align: center;
+}
+
+.container h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.heading h2{
+    font-size: 24px;
+}
+
+.heading h3{
+    font-size: 16px;
+    font-weight: lighter;
+}
+
+
+/*---------------------Photo Upload -----------------*/
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Jost', sans-serif;
+    background-color: white !important;
+    
+
+  }
+  
+  
+  .app {
+    max-width: 1224px;
+    width: 92%;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    padding-bottom: 10px;
+  }
+  
+  .header h3 {
+    min-width: fit-content;
+  }
+  
+  .server-message {
+    width: 100%;
+    padding: 16px;
+    border-radius: 5px;
+  }
+  
+ .table {
+    display: grid;
+    grid-template-columns: 2fr 4fr; 
+ }
+  
+  .input-div {
+    width: 80%;
+    height: 100px;
+    border-radius: 5px;
+    display: inline-block;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 1px solid black;
+    background-color: white;
+    position: relative;
+    margin-left: 5px;
+  }
+
+  .input-div-first {
+    width: 100% !important;
+    height: 315px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px dotted black;
+    background-color: white;
+    position: relative;
+  }
+  .input-div-secound{
+    width: 100%;
+    color: transparent !important;
+  }
+  
+  .input-div .browse {
+    color: black;
+    font-weight: bold;
+  }
+
+  
+  
+  .file {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+
+  
+
+
+
+
+
+/*---------------------------------------Login Page------------------------------------------------*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    font-family: Montserrat, sans-serif;
+  }
+  
+#Login-form .container{
+    width: 100%;
+    height: 100vh;
+    background-image: linear-gradient(rgba(105, 105, 113, 0.8),rgba(0,0,50,0.8)), url(images/Community\ Login\ Baackground.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.form-box{
+    width: 90%;
+    max-width: 450px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: #fff;
+    padding: 50px 60px 70px;
+    text-align: center;
+}
+
+.form-box h1{
+    font-size: 30px;
+    margin-bottom: 60px;
+    color: #000000;
+    position: relative;
+}
+
+.form-box h1::after{
+    content: '';
+    width: 30px;
+    height: 4px;
+    border-radius: 3px;
+    background: #21009a;
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.input-field{
+    background: #eaeaea;
+    margin: 15px 0;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    max-height: 65px;
+    transition: max-height 0.5s;
+    overflow: hidden;
+}
+
+input{
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    padding: 18px 15px;
+    
+}
+
+.input-field i{
+    margin-left: 15px;
+    color: #999 ;
+}
+
+form p{
+    text-align: left;
+    font-size: 13px;
+}
+
+form p a {
+    text-decoration: none;
+    color: #3c00a0;
+}
+
+.btn-field{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-field button{
+    flex-basis: 48%;
+    background: #21009a;
+    color: #fff;
+    height: 40px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: background 1s;
+}
+
+.input-group{
+    height: 280px;
+}
+
+.btn-field button.disable{
+    background: #eaeaea;
+    color: #555;
+}
+
+
+/*-------footer-------*/
+
+.footer{
+    background: #000;
+    color: #8a8a8a;
+    font-size: 14px;
+    padding: 60px 0 20px;
+}
+
+.footer p{
+    color: #8a8a8a;
+}
+
+.footer h3{
+    color: white;
+    margin-bottom: 20px;
+}
+
+.footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-col-1{
+    flex-basis: 30px;
+}
+
+.footer-col-2{
+    flex: 1;
+    text-align: center;
+}
+.footer-col-2 img{
+    width: 180px;
+    margin-bottom: 20px;
+}
+
+.footer-col-3, .footer-col-4{
+    flex-basis: 12%;
+    text-align: center;
+}
+ul{
+    list-style-type: none;
+}
+
+.app-logo{
+    margin-top: 20px;
+}
+
+.app-logo img{
+    width: 140px;
+}
+
+.menu-icon{
+    width: 28px;
+    margin-left: 20px;
+    display: none;
+}
+
+
+/*-----------------------------------------Item Page ----------------------------------*/
+
+.flex-box{
+    display: flex;
+    width: 1000px;
+    margin: 20px auto;
+}
+.left{
+    width: 40%;
+}
+.big-img{
+    width: 250px;
+}
+.big-img img{
+    width: inherit;
+}
+.images{
+    display: flex;
+    flex-wrap: wrap; /* This will allow items to wrap onto multiple lines */
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 15px;
+}
+.small-img{
+    width: 50px;
+    overflow: hidden;
+    border: 1.5px solid black;
+}
+.small-img img{
+    width: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.small-img:hover img{
+    transform: scale(1.2);
+}
+.url{
+    font-size: 16px;
+    font-weight: 400;
+    color: rgb(0, 102, 255);
+}
+.pname{
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: 50px;
+}
+.ratings i{
+    color: rgb(255, 136, 0);
+}
+.price{
+    font-size: 20px;
+    font-weight: 500;
+    margin: 20px 0;
+}
+.size{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+.size p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.psize{
+    width: 60px;
+    height: 30px;
+    border: 1px solid #ff5e00;
+    color: #000;
+    text-align: center;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.psize.active{
+    border-width: 1.5px;
+    color: #ff5e00;
+    font-weight: 500;
+}
+.quantity{
+    display: flex;
+}
+.quantity p{
+    font-size: 18px;
+    font-weight: 500;
+}
+.quantity input{
+    width: 40px;
+    font-size: 17px;
+    font-weight: 500;
+    text-align: center;
+    margin-left: 15px;
+}
+.btn-box{
+    display: flex;
+    margin-top: 40px;
+}
+.btn-box button{
+    font-size: 18px;
+    padding: 8px 25px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+.cart-btn{
+    background-color: #ff5e00;
+    margin-right: 20px;
+}
+.buy-btn{
+    background-color: #00aeff;
+}
+.cart-btn:hover{
+    background-color: #ff3c00;
+}
+.buy-btn:hover{
+    background-color: #0066ff;
+}

@@ -1,0 +1,290 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8"> <!---Character encoding-->
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1.0"> <!--For Different device (Compatibility)-->
+
+    <!-- External Libraries-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+
+    <link rel = "stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="{% static 'css/photoUpload.css' %}">
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Add Item</title>
+
+</head>
+
+<body>
+    <!---------------------------NAVIGATION BAR------------------------------>
+    <section id="nav-bar">
+        <div class="container"> 
+            <nav class="navbar navbar-expand-lg bg-body-tertiary" style="height: 80px;">
+
+                
+                <a href="{% url 'condition' %}" class="icon-link d-flex justify-content-center align-items-center" style="width: 30%; height: 100%;">
+                    <i class="fas fa-chevron-circle-left"></i> <!-- Plus icon -->
+                </a>
+
+
+                <div class="container-fluid">
+                    <a class="navbar-brand-sell" href="{% url 'products' %}" style="text-decoration: none;">UniTrade</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+
+
+
+    <!--Complete Listing-->
+
+    <section id="listing">
+
+        <div class="container">
+
+
+            <br>
+            <br>
+            <h1>Complete your Listing</h1>
+            <hr>    
+            <br>
+
+            <h3>Item Specifics</h3>
+
+            <br>
+
+
+            <form method="post" action="" enctype="multipart/form-data" id="queued-form">
+                {% csrf_token %} 
+
+                
+                <!-- Title Input -->
+                <div class="row mb-3">
+                  <label for="title" class="col-sm-2 col-form-label">Title</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="title" name="title" required>
+                  </div>
+                </div>
+                <!-- Brand Input -->
+                <div class="row mb-3">
+                  <label for="brand" class="col-sm-2 col-form-label">Brand</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="brand" name="brand">
+                  </div>
+                </div>
+                <!-- Department Select -->
+                <div class="row mb-3">
+                  <label for="department" class="col-sm-2 col-form-label">Department</label>
+                  <div class="col-sm-10">
+                    <select class="form-select" id="department" name="department">
+                        {% for department in departments %}
+                          
+                          <option value="{{department.id}}">{{department.name}}</option>
+
+                        {% endfor %}
+                    </select>
+                  </div>
+                </div>
+                <!-- Price Input -->
+                <div class="row mb-3">
+                  <label for="price" class="col-sm-2 col-form-label">Price</label>
+                  <div class="col-sm-10">
+                    <div class="input-group-text">
+                      <span class="input-group-text">£</span>
+                      <input type="number" class="form-control" id="price" name="price" placeholder="Enter price" step="0.01" required>
+                    </div>
+                  </div>
+                </div>
+                <!-- Condition Input -->
+                <div class="mb-3 row">
+                  <label for="condition" class="col-sm-2 col-form-label">Condition</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control-plaintext" id="condition" name="condition" value="Pre-owned">
+                  </div>
+                </div>
+                <!-- Description Textarea -->
+                <div class="mb-3">
+                  <label for="description" class="form-label">Product Description</label>
+                  <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                </div>
+              
+
+                <hr>
+                <br>
+                <br>
+
+                <div class="heading">
+                  <h2>Photos & Video</h2>
+                  <h3>Buyers want to see all details and angles. Tips for taking pro photos!</h3>
+                </div>
+
+              <br>
+                <!-- Photo Upload Input -->
+                <div class="input-div">
+                  <p>Drag & drop photos here or <span class="browse">Browse</span></p>
+                  <input name="image" type="file" class="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg" />
+                </div>
+
+              
+                  <br>            
+                  <div class="queued-div"></div>
+                  
+      
+                  <br>
+                
+    
+                <!-- Submit Button -->
+                <div class="Confirm-button">
+                  <button type="submit" class="btn btn-primary">Upload</button>
+                </div> 
+            </form>
+
+
+            <br>
+
+<!-------Footer------>
+<!------------Footer---------------->
+<section id="footer">
+
+  <div class="container text-center">
+      <br>
+      <div>
+          <a style="color: #fff; font-size: x-large;" href="https://twitter.com/?lang=en"><span style="padding-left: 16px;"><i class="fa-brands fa-x-twitter"></span></i></a>
+          <a style="color: #fff; font-size: x-large;" href="https://www.instagram.com/unitrade12/"><span style="padding-left: 16px;"><i class="fab fa-instagram"></span></i></a>
+          <a style="color: #fff; font-size: x-large;" href="https://www.youtube.com/"><span style="padding-left: 16px;"><i class="fab fa-youtube"></span></i></a>
+          <a style="color: #fff; font-size: x-large;" href="https://en-gb.facebook.com/"><span style="padding-left: 16px;"><i class="fab fa-facebook"></span></i></a>
+      </div>
+    <div class="footer-columns d-flex justify-content-between">
+      <ul class="main-footer-groups 1">
+        <li class="same-as-above-idek">
+        </li>
+      </ul>
+      <ul class="main-footer-groups 2">
+        <li class="same-as-above-idk">
+          <br>
+          <a style="color: #fff; text-decoration: none;" href="{% url 'aboutus' %}"><span style="padding-left: 20px;">About Us</span></a>
+          <a style="text-decoration: none; color: #fff;" href="{% url 'products' %}"><span style="padding-left: 20px;">Contact Us</span></a>
+          <a style="color: #fff; text-decoration: none;" href="{% url 'current' %}"><span style="padding-left: 20px;">Sell With Us</span></a>
+          <a style="text-decoration: none; color: #fff;" href="{% url 'faq' %}"><span style="padding-left: 20px;">FAQ's</span></a>
+          <a style="color: #fff; text-decoration: none;" href="{% url 'termsandconditions' %}"><span style="padding-left: 20px;">Terms And Conditions</span></a>
+          <a style="color: #fff; text-decoration: none;" href="{% url 'privacypolicy' %}"><span style="padding-left: 20px;">Privacy Notice</span></a>
+
+        </li>
+      </ul>
+      <ul class="main-footer-groups 3">
+          <li class="same-as-above-idek">
+          </li>
+      </ul>
+    </div>
+  </div>
+
+</section>
+
+
+          
+            <script>
+  
+                // 1
+                let queuedImagesArray = [],
+                  savedForm = document.querySelector("#saved-form"),
+                  queuedForm = document.querySelector("#queued-form"),
+                  savedDiv = document.querySelector('.saved-div'),
+                  queuedDiv = document.querySelector('.queued-div'),
+                  inputDiv = document.querySelector('.input-div'),
+                  input = document.querySelector('.input-div input'),
+                  serverMessage = document.querySelector('.server-message'),
+                  deleteImages = [];
+            
+                // SAVED IN SERVER - We'll complete in part 2
+            
+                // QUEUED IN FRONTEND
+                function displayQueuedImages() {
+                  let images = "";
+                  queuedImagesArray.forEach((image, index) => {
+                    images += `<div class="image">
+                                <img src="${URL.createObjectURL(image)}" alt="image">
+                                <span onclick="deleteQueuedImage(${index})">&times;</span>
+                              </div>`;
+                  })
+                  queuedDiv.innerHTML = images;
+                }
+            
+                function deleteQueuedImage(index) {
+                  queuedImagesArray.splice(index, 1);
+                  displayQueuedImages();
+                }
+            
+                input.addEventListener("change", () => {
+                  const files = input.files;
+                  for (let i = 0; i < files.length; i++) {
+                    queuedImagesArray.push(files[i])
+                  }
+                  // queuedForm.reset();
+                  displayQueuedImages()
+                })
+            
+                inputDiv.addEventListener("drop", (e) => {
+                   e.preventDefault()
+                  const files = e.dataTransfer.files
+                  for (let i = 0; i < files.length; i++) {
+                    if (!files[i].type.match("image")) continue; // only photos
+            
+                    if (queuedImagesArray.every(image => image.name !== files[i].name))
+                      queuedImagesArray.push(files[i])
+                  }
+                  displayQueuedImages()
+                })
+            
+                queuedForm.addEventListener("submit", (e) => {
+                  // e.preventDefault()
+                   sendQueuedImagesToServer()
+                });    
+            
+                function sendQueuedImagesToServer() {
+                  const formData = new FormData(queuedForm);
+            
+                  queuedImagesArray.forEach((image, index) => {
+                    formData.append(`file[${index}]`, image)
+                  })
+            
+                  fetch("upload", {
+                    method: "post",
+                    body: formData
+                  })
+            
+                  .then(response => {
+                    if (response.status !== 200) throw Error(response.statusText)
+                    location.reload()
+                  })
+            
+                  .catch(error => {
+                    serverMessage.innerHTML = error
+                    serverMessage.style.cssText = "background-color: #f8d7da; color:#b71c1c"
+                  });
+            
+                 }
+            
+              </script>
+
+    
+</body>          
+
+
+    
